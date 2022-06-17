@@ -1,5 +1,5 @@
 <template>
-  <a class="button" @click.prevent="clicked">
+  <a class="button" @click.prevent="this.$emit('clicked', this.button.position)">
     <MenuIcon class="menu-icon" :icon_name="this.button.icon_name" />
     <!--maybe add-> :style= "[this.button.is_first ? {'opacity': '1'} : {'opacity': '0.2'}]" -->
   </a>
@@ -17,11 +17,6 @@ export default {
   props: {
     button: Object
   },
-  methods: {
-    clicked() {
-      this.$emit('clicked', this.button.position)
-    }
-  }
   
 }
 </script>

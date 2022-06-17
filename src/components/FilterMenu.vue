@@ -1,19 +1,15 @@
 <template>
 
-<nav role="navigation">
-    <div class="menu-title">
-        <a href="#" class="menu-text">
-            <MenuIcon class="menu-icon" :icon="filter.icon_name" />
-            {{this.filter.name}}
-        </a>
-        <ul class="dropdown">
+    <div class="filter-menu-dropdown">
+        <MenuIcon class="menu-icon"  @click="this.$emit('clicked', this.filter)" :icon="filter.icon_name" />
+        <span v-if="this.selected" class="menu-text menu-title">{{this.filter.name}}</span>
+        <ul v-if="this.selected" class="dropdown">
             <li v-for="(box, i) in this.filter.boxes" :key="box" class="menu-item">
                 <input type="checkbox" class="menu-box" />
-                <a href="#" class="menu-text">{{this.filter.boxes[i]}}</a>
+                <span class="menu-text">{{this.filter.boxes[i]}}</span>
             </li>
         </ul>
     </div>
-</nav>
 
 </template>
 
@@ -26,23 +22,24 @@ export default {
         MenuIcon,
     },
     props: {
-        filter: Object
-    }
+        filter: Object,
+        selected: Boolean
+    },
+    
 }
 </script>
 
 <style lang="scss" scoped>
-.menu-item, .menu-title {
+.menu-item, .filter-menu-dropdown {
     list-style: none;
     margin: 0 auto;
     border-left: 2px solid #4E8CFC;
-    padding: 0 30px;
+    padding: 0 15px;
     position: relative;
     text-decoration: none;
     text-align: center;
-    font-family: arvo;
 }
-.menu-item, .menu-title:hover {
+.menu-item, .filter-menu-dropdown:hover {
     cursor: pointer;
 }
 .menu-item {
@@ -65,25 +62,29 @@ export default {
     &:hover { color: #3ca0e7; }
 }
 .dropdown {
-    position: fixed;
-    z-index: 5;
-    
+    min-width: 250px;
+
     margin: 0px;
-    visibility: hidden;
-    opacity: 0;
     position: absolute;
-    padding-left: 0;
+    padding: 20px 0px 0px 0px;
+    
     left: 0;
-    display: none;
-    background: white;
+    text-align: left;
+
+    background: #ffffff;
+    box-shadow: 0px 3px 5px -1px #000000;
+
+    opacity: 0;
+    transition: opacity 1s ease;
 }
-.menu-title:hover .dropdown, .dropdown:hover {
+.filter-menu-dropdown:hover .dropdown, .dropdown:hover {
     visibility: visible;
     opacity: 1;
     display: block;
-    min-width: 250px;
-    text-align: left;
-    padding-top: 20px;
-    box-shadow: 0px 3px 5px -1px #000000;
+}
+
+.menu-title {
+    padding-left: 30px;
+    text-decoration: none !important;
 }
 </style>

@@ -1,13 +1,15 @@
 <template>
+
 <div class="filter-menu">
 <div>
     <TransitionGroup name="list">
-        <a href="#" v-for="filter in this.filters" :key="filter" class="filter-menu-item"> 
-          <FilterMenu :filter="filter"/>
+        <a v-for="(filter, i) in this.filters" :key="filter" class="filter-menu-item"> 
+          <FilterMenu :filter="filter" :selected="this.selected_menu[i]" @clicked="clicked(filter)"/>
         </a>
     </TransitionGroup>
 </div>
 </div>
+
 </template>
 
 <script>
@@ -15,11 +17,31 @@ import FilterMenu from './FilterMenu.vue'
 
 export default {
     name: 'MenuFilters',
+    data() { 
+      const s = []
+      for (let i=0; i<this.filters.length; i++) s.push(false)
+      return {
+      selected_menu: s
+    }},
     components: {
       FilterMenu,
     },
     props: {
         filters: Array
+    },
+    watch: {
+      filters: function(n, o) {
+        console.log(o + ' changed in ' + n)
+        for (let i=0; i<this.selected_menu.length; i++) this.selected_menu[i] = false 
+      }
+    },
+    methods: {
+      clicked(filter) {
+        for (let i=0; i<this.filters.length; i++) {
+          this.selected_menu[i] = false
+          if (this.filters[i] === filter) { this.selected_menu[i] = true }
+        }
+      }
     }
 }
 </script>
