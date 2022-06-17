@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .button:hover { background: #F5F6FB; }
 .button {
   border: 4px solid #F5F6FB;

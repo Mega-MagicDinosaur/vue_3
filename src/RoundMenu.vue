@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import MenuButton from './components/MenuButton.vue'
 import CenterButton from './components/CenterButton.vue'
 import MenuFilters from './components/MenuFilters.vue'
@@ -29,6 +29,14 @@ class Button {
     this.is_first = is_first
   }
 }
+class Filter {
+  constructor(name, icon_name, boxes) {
+    this.name = name
+    this.icon_name = icon_name
+    this.boxes = boxes
+    this.toggled = false
+  }
+}
 
 export default {
   name: 'RoundMenu',
@@ -39,18 +47,52 @@ export default {
   },
   data() { 
     // VARIABLES
-    const i = [
-        new Button("item1", "globe-africa", ['filter-a', 'filter-b', 'filter-c', 'filter-a', 'filter-b', 'filter-c'], true),
-        new Button("item2", "arrow-trend-up", ['filter-d', 'filter-e', 'filter-f', 'filter-d', 'filter-e', 'filter-f'], false),
-        new Button("item3", "battery-full", ['filter-g', 'filter-h', 'filter-i', 'filter-g', 'filter-h', 'filter-i'], false),
-        new Button("item4", "sitemap", ['filter-j', 'filter-k', 'filter-l', 'filter-j', 'filter-k', 'filter-l'], false),
+    const f = [
+       [ // FILTERS BUTTON 1
+        new Filter('Trends Keywords1', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords2', 'map', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords3', 'file-word', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords4', 'globe', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords5', 'earth-africa', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords6', 'compact-disc', ['flanges', 'carbon steel', 'stainless steel']),
+       ], 
+       [ // FILTERS BUTTON 2
+        new Filter('Trends Keywords7', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords8', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords9', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords10', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords11', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords12', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+       ], 
+       [ // FILTERS BUTTON 3
+        new Filter('Trends Keywords13', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords14', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords15', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords16', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords17', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords18', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+       ], 
+       [ // FILTERS BUTTON 4
+        new Filter('Trends Keywords19', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords20', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords21', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords22', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords23', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+        new Filter('Trends Keywords24', 'key', ['flanges', 'carbon steel', 'stainless steel']),
+       ]
+    ]
+    const b = [
+        new Button("item1", "globe-africa", f[0], true),
+        new Button("item2", "arrow-trend-up", f[1], false),
+        new Button("item3", "battery-full", f[2], false),
+        new Button("item4", "sitemap", f[3], false),
     ]
     // RETURN 
     return {
       turn: 45,
-      items: [i[0],i[1],i[2],i[3],],
-      buttons: [i[0],i[1],i[2],i[3],],
-      filters: []
+      items:   [b[0],b[1],b[2],b[3]],
+      buttons: [b[0],b[1],b[2],b[3]],
+      filters: [],
   }},
   methods: {
     clicked(clicked_item) {

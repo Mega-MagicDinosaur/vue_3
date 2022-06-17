@@ -3,7 +3,7 @@
 <div>
     <TransitionGroup name="list">
         <a href="#" v-for="filter in this.filters" :key="filter" class="filter-menu-item"> 
-            <i class="" :class="filter">filter: {{filter}}</i>
+          <FilterMenu :filter="filter"/>
         </a>
     </TransitionGroup>
 </div>
@@ -11,21 +11,27 @@
 </template>
 
 <script>
-// import MenuIcon from './MenuIcon.vue'
+import FilterMenu from './FilterMenu.vue'
 
 export default {
     name: 'MenuFilters',
-    components: {},
+    components: {
+      FilterMenu,
+    },
     props: {
         filters: Array
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 /* SCSS HERE */
 @import "node_modules/mathsass/dist/math";
+
+.menu-icon {
+  font-size: 22px;
+}
 
 $pi:3.1415;
 $menu-items: 6;
@@ -51,8 +57,11 @@ $opening-angle:$pi/2;
   top: -50%;
 }
 .filter-menu-item{
+  display: inline-block;
+  white-space: nowrap;
   position: absolute;
   z-index: 1;
+  transform: scale(0.25);
 
   @extend %ball;
 
@@ -62,14 +71,14 @@ $opening-angle:$pi/2;
     
     &:nth-child(#{$i}){
       transition-duration: 500ms;
-      transform:translate3d(cos($angle)*$open-distance,sin($angle)*$open-distance,0);
+      transform:translate3d(cos($angle)*$open-distance,sin($angle)*$open-distance,0) scale(1);
     }
   }
 }
 
 .list-enter-active,
 .list-leave-active {
-  transition: .5s;
+  transition: 2s;
 }
 
 .list-enter-from,
