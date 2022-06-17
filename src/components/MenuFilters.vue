@@ -30,11 +30,10 @@ export default {
         filters: Array
     },
     watch: {
-      filters: function(n, o) {
-        console.log(o + ' changed in ' + n)
-        for (let i=0; i<this.selected_menu.length; i++) this.selected_menu[i] = false 
-      }
-    },
+      filters: { deep: true, // needed to look into array 
+        handler() {
+          for (let i=0; i<this.selected_menu.length; i++) this.selected_menu[i] = false 
+    }}},
     methods: {
       clicked(filter) {
         for (let i=0; i<this.filters.length; i++) {

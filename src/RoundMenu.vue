@@ -21,22 +21,7 @@ import MenuButton from './components/MenuButton.vue'
 import CenterButton from './components/CenterButton.vue'
 import MenuFilters from './components/MenuFilters.vue'
 
-class Button {
-  constructor(position, icon_name, filters, is_first) {
-    this.position = position
-    this.icon_name = icon_name
-    this.filters = filters
-    this.is_first = is_first
-  }
-}
-class Filter {
-  constructor(name, icon_name, boxes) {
-    this.name = name
-    this.icon_name = icon_name
-    this.boxes = boxes
-    this.toggled = false
-  }
-}
+import { data } from './datafile.js'
 
 export default {
   name: 'RoundMenu',
@@ -46,47 +31,7 @@ export default {
     MenuFilters,
   },
   data() { 
-    // VARIABLES
-    const f = [
-       [ // FILTERS BUTTON 1
-        new Filter('Trends Keywords1', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords2', 'map', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords3', 'file-word', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords4', 'globe', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords5', 'earth-africa', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords6', 'compact-disc', ['flanges', 'carbon steel', 'stainless steel']),
-       ], 
-       [ // FILTERS BUTTON 2
-        new Filter('Trends Keywords7', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords8', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords9', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords10', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords11', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords12', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-       ], 
-       [ // FILTERS BUTTON 3
-        new Filter('Trends Keywords13', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords14', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords15', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords16', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords17', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords18', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-       ], 
-       [ // FILTERS BUTTON 4
-        new Filter('Trends Keywords19', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords20', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords21', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords22', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords23', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-        new Filter('Trends Keywords24', 'key', ['flanges', 'carbon steel', 'stainless steel']),
-       ]
-    ]
-    const b = [
-        new Button("item1", "globe-africa", f[0], true),
-        new Button("item2", "arrow-trend-up", f[1], false),
-        new Button("item3", "battery-full", f[2], false),
-        new Button("item4", "sitemap", f[3], false),
-    ]
+    const b = data
     // RETURN 
     return {
       turn: 45,
@@ -133,9 +78,10 @@ export default {
       return 0
     },
     setFilters(f) {
-      let len = this.filters.length
+      this.filters = f
+      /* let len = this.filters.length
       for (let i=0; i<len; i++) { this.filters.shift() }
-      for (let i=0; i<f.length; i++) { this.filters.push(f[i]) }
+      for (let i=0; i<f.length; i++) { this.filters.push(f[i]) } */
     }
   },
   
