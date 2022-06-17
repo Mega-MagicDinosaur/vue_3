@@ -2,7 +2,7 @@
 <div class="filter-menu">
 <div>
     <TransitionGroup name="list">
-        <a v-for="filter in this.filters" :key="filter" class="filter-menu-item"> 
+        <a href="#" v-for="filter in this.filters" :key="filter" class="filter-menu-item"> 
             <i class="" :class="filter">filter: {{filter}}</i>
         </a>
     </TransitionGroup>
@@ -51,9 +51,8 @@ $opening-angle:$pi/2;
   top: -50%;
 }
 .filter-menu-item{
-  white-space: nowrap;
-  transform-origin: center;
-  z-index: -1;
+  position: absolute;
+  z-index: 1;
 
   @extend %ball;
 

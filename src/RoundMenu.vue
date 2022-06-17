@@ -38,12 +38,14 @@ export default {
     MenuFilters,
   },
   data() { 
+    // VARIABLES
     const i = [
         new Button("item1", "globe-africa", ['filter-a', 'filter-b', 'filter-c', 'filter-a', 'filter-b', 'filter-c'], true),
         new Button("item2", "arrow-trend-up", ['filter-d', 'filter-e', 'filter-f', 'filter-d', 'filter-e', 'filter-f'], false),
         new Button("item3", "battery-full", ['filter-g', 'filter-h', 'filter-i', 'filter-g', 'filter-h', 'filter-i'], false),
         new Button("item4", "sitemap", ['filter-j', 'filter-k', 'filter-l', 'filter-j', 'filter-k', 'filter-l'], false),
     ]
+    // RETURN 
     return {
       turn: 45,
       items: [i[0],i[1],i[2],i[3],],
@@ -101,11 +103,15 @@ export default {
 <style>
 
 /* MENU BUTTONS */
+
 .menu-container {
   width: 45vh;
   height: 45vh;
 }
 .round-menu {
+    position: relative;
+    z-index: 2;
+
     width: 45vh;
     height: 45vh;
     border-radius: 50%;

@@ -1,6 +1,7 @@
 <template>
   <a class="button" @click.prevent="clicked">
     <MenuIcon class="menu-icon" :icon_name="this.button.icon_name" />
+    <!--maybe add-> :style= "[this.button.is_first ? {'opacity': '1'} : {'opacity': '0.2'}]" -->
   </a>
 </template>
 
@@ -35,6 +36,8 @@ export default {
 .menu-icon {
   position: relative;
 
+  color: #4E8CFC;
+
   font-size: 40px;
   text-align: center;
   width: 100%;
@@ -43,11 +46,6 @@ export default {
   text-align: center;
   
   transform: scale(0.25) rotate(315deg);
-}
-
-.button a {
-  color: red;
-  background-color: blue;
 }
 
 </style>
