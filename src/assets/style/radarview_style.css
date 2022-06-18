@@ -1,0 +1,38 @@
+/* RADAR VIEW */
+.radarview-container {
+    display: flex;
+    flex-direction: column;
+    
+    height: 100vh;
+}
+
+/* TOP VIEW */
+.top-view {
+    display: flex;
+}
+.title-box {
+    min-width: 220px;
+    margin: 30px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #17294A;
+}
+.filters-box {
+    display: inherit;
+    align-items: center;
+
+    width: 100%;
+    margin: 30px;
+    padding: 0px 20px 0px 20px;
+
+    border-radius: 15px;
+    background-color: #fbfbfb;
+    box-shadow: 2px 4px 8px #C4C4DA;
+}
+
+/* CENTER VIEW */
+
+/* BOTTON VIEW */
+
+/* NAV VIEW */

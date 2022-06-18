@@ -88,5 +88,5 @@ export default {
 </script>
 
 <style scoped>
-@import '../../assets/style/roundmenu_style.css';
+@import '../../assets/style/centerview/roundmenu_style.css';
 </style>

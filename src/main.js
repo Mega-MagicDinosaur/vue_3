@@ -13,8 +13,8 @@ dom.watch()
 
 import { createApp } from 'vue'
 
-import App from './App.vue'
+import RadarView from './RadarView.vue'
 
-const app = createApp(App);
+const app = createApp(RadarView);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount('#app')

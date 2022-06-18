@@ -44,6 +44,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped src="../../assets/style/menufilters_style.scss">
+<style lang="scss" scoped src="../../assets/style/centerview/menufilters_style.scss">
 
 </style>
