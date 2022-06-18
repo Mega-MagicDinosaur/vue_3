@@ -1,5 +1,4 @@
 <template>
-  <h1> hello world! </h1>
   <div class="menu-container">
     <div class="round-menu">
       <MenuButton v-for="item in this.items" :key="item" 
@@ -12,7 +11,7 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 import MenuButton from './components/MenuButton.vue'
 import CenterButton from './components/CenterButton.vue'
 import MenuFilters from './components/MenuFilters.vue'
@@ -97,5 +96,6 @@ export default {
 }
 </script>
 
-<style scoped src="./assets/style/roundmenu_style.css">
+<style scoped>
+@import './assets/style/roundmenu_style.css';
 </style>
