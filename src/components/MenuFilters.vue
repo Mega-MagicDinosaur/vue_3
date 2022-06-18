@@ -1,11 +1,11 @@
-<template>
++<template>
 
 <div class="filter-menu">
 <div>
     <TransitionGroup name="list">
         <a v-for="(filter, index) in this.filters" :key="filter" class="filter-menu-item"> 
           <FilterMenu :filter="filter" :selected="this.selected_menu[index]" 
-          @clicked_menu="clicked_menu(filter)" @toggled_box="toggled_box(i, index)"/>
+          @clicked_menu="clicked_menu(filter)" @toggled_box="toggled_box($event, index)"/>
         </a>
     </TransitionGroup>
 </div>
@@ -24,14 +24,10 @@ export default {
       return {
       selected_menu: s
     }},
-    components: {
-      FilterMenu,
-    },
-    props: {
-        filters: Array
-    },
+    components: { FilterMenu },
+    props: { filters: Array },
     watch: {
-      filters: { deep: true, // needed to look into array 
+      filters: {
         handler() {
           for (let i=0; i<this.selected_menu.length; i++) this.selected_menu[i] = false 
     }}},
@@ -41,10 +37,8 @@ export default {
           this.selected_menu[i] = false
           if (this.filters[i] === filter) { this.selected_menu[i] = true }
       }},
-      toggled_box(filter, i) {
-        // develop
-        filter;
-        i;
+      toggled_box(filter_menu_pos, menu_pos) {
+        this.$emit('toggled_box', filter_menu_pos, menu_pos)
       }
     }
 }

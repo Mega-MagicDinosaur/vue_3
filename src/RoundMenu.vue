@@ -2,17 +2,13 @@
   <h1> hello world! </h1>
   <div class="menu-container">
     <div class="round-menu">
-      <MenuButton class="menu-button" :style="{ transform: 'rotate('+ turn +'deg)'}" 
-      @clicked="clicked" :button="items[0]" />
-      <MenuButton class="menu-button" :style="{ transform: 'rotate('+ turn +'deg)'}"
-      @clicked="clicked" :button="items[1]" />
-      <MenuButton class="menu-button" :style="{ transform: 'rotate('+ turn +'deg)'}"
-      @clicked="clicked" :button="items[2]" />
-      <MenuButton class="menu-button" :style="{ transform: 'rotate('+ turn +'deg)'}"
-      @clicked="clicked" :button="items[3]" />
+      <MenuButton v-for="item in this.items" :key="item" 
+      class="menu-button" :style="{ transform: 'rotate('+ turn +'deg)'}" 
+      @clicked="clicked" :button="item" />
+
       <CenterButton class="center-button" />
     </div>
-    <MenuFilters :filters="filters"/>
+    <MenuFilters :filters="filters" @toggled_box="toggled_box"/>
   </div>
 </template>
 
@@ -35,13 +31,16 @@ export default {
     // RETURN 
     return {
       turn: 45,
-      items:   [b[0],b[1],b[2],b[3]],
-      buttons: [b[0],b[1],b[2],b[3]],
+      // maybe in the future use button data, 
+      // it is nice way to change both items and buttons.
+      // button_data: b, // for data change, so it changes in both items and buttons
+      items:   b, // id of button
+      buttons: [b[0],b[1],b[2],b[3]], // position of button (up, down, ecc..)
       filters: [],
   }},
   methods: {
     clicked(clicked_item) {
-      let position = this.getPosition(clicked_item) // guarda da dove è arrivato l'input(su, giù, ecc..)
+      let position = this.getPosition(clicked_item)
       let first = this.buttons[0].position
       for (let i=0; i<this.items.length; i++) { if (this.items[i].position === first) { this.items[i].is_first = false } }
       if (position == 1){ // down
@@ -61,6 +60,16 @@ export default {
         if (this.items[i].position === first) { 
           this.items[i].is_first = true 
           this.setFilters(this.items[i].filters)
+        }
+      }
+    },
+    toggled_box(filter_menu_pos, menu_pos) {
+      for (let i=0; i<this.items.length; i++) {
+        let item = this.items[i]
+        if (item.is_first) {
+          let filter = item.filters[menu_pos]
+          let box = filter.boxes[filter_menu_pos]
+          box.toggled = !box.toggled
         }
       }
     },
