@@ -1,26 +1,35 @@
 
-.menu-icon { font-size: 22px; }
+.menu-icon { 
+    position: relative;
+    font-size: 22px; 
+    z-index: 1;
+}
 .menu-title { 
+    position: relative;
     display: inline;
     vertical-align: top;
-    padding: 0px 0px 0px 15px 
+    padding: 0px 0px 0px 15px;
+    z-index: 1;
 }
 .menu-item, .filter-menu-dropdown {
     list-style: none;
     margin: 0 auto;
     border-left: 2px solid #4E8CFC;
-    padding: 0 15px;
     position: relative;
     text-decoration: none;
     text-align: center;
 }
-.menu-item, .filter-menu-dropdown:hover { cursor: pointer; }
+.menu-item, .menu-title, .menu-icon { cursor: pointer; }
 .menu-item {
     clear: both;
     width: 100%;
+    padding: 0px 20px 0px 0px;
     text-align: left;
     margin-bottom: 20px;
     border-style: none;
+}
+.menu-item .menu-text {
+    padding-left: 5px;
 }
 .menu-item:hover .menu-text{
     padding-left: 10px;
@@ -34,25 +43,39 @@
     &:hover { color: #3ca0e7; }
 }
 .dropdown {
-    min-width: 250px;
+    position: absolute;
+    z-index: 2;
+
+    // min-width: 250px;
     pointer-events: none;
 
-    margin: 0px;
-    position: absolute;
-    padding: 20px 0px 0px 0px;
+    margin: 0px 0px 0px 80px;
+    padding: 10px 20px 0px 0px;
     
     left: 45px;
     text-align: left;
 
     background: #ffffff;
-    box-shadow: 0px 3px 5px -1px #000000;
+    // box-shadow: 0px 3px 5px -1px #000000;
 
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 .filter-menu-dropdown:hover .dropdown, .dropdown:hover {
+    position: absolute;
+    z-index: 2;
+
     pointer-events: all;
     visibility: visible;
     opacity: 1;
     display: block;
+}
+
+.filter-menu-dropdown:hover .menu-title, .dropdown:hover .menu-title {
+    margin: 0px 0px 0px 10px;
+    padding: 0px 40px 0px 80px;
+    border-bottom: 2px solid #4E8CFC;
+}
+.filter-menu-dropdown {
+    padding: 0 15px;
 }
