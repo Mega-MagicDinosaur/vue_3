@@ -4,7 +4,6 @@
       <MenuButton v-for="item in this.items" :key="item" 
       class="menu-button" :style="{ transform: 'rotate('+ turn +'deg)'}" 
       @clicked="clicked" :button="item" />
-
       <CenterButton class="center-button" />
     </div>
     <MenuFilters :filters="filters" @toggled_box="toggled_box"/>
