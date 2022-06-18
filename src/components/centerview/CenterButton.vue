@@ -8,8 +8,8 @@ export default {
   components: {}
   
 }
-
 </script>
+
 <style scoped>
 a {
   background: #E2E2E2;

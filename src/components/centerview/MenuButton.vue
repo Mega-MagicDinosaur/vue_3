@@ -21,5 +21,5 @@ export default {
 }
 </script>
 
-<style scoped src="../assets/style/menubutton_style.css">
+<style scoped src="../../assets/style/menubutton_style.css">
 </style>

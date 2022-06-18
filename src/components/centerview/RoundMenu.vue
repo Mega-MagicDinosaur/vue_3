@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import MenuButton from './components/MenuButton.vue'
-import CenterButton from './components/CenterButton.vue'
-import MenuFilters from './components/MenuFilters.vue'
+import MenuButton from './MenuButton.vue'
+import CenterButton from './CenterButton.vue'
+import MenuFilters from './MenuFilters.vue'
 
-import { data } from './assets/script/datafile.js'
+import { buttons_data } from '../../assets/script/datafile.js'
 
 export default {
   name: 'RoundMenu',
@@ -25,31 +25,30 @@ export default {
     MenuFilters,
   },
   data() { 
-    const b = data
-    // RETURN 
+    const b = buttons_data
     return {
       turn: 45,
-      // maybe in the future use button data, 
-      // it is nice way to change both items and buttons.
-      // button_data: b, // for data change, so it changes in both items and buttons
-      items:   b, // id of button
-      buttons: [b[0],b[1],b[2],b[3]], // position of button (up, down, ecc..)
+      items:   b,				// data will have to be passed from v-bind eventually !!
+      buttons: [b[0],b[1],b[2],b[3]],
       filters: [],
   }},
   methods: {
     clicked(clicked_item) {
       let position = this.getPosition(clicked_item)
       let first = this.buttons[0].position
-      for (let i=0; i<this.items.length; i++) { if (this.items[i].position === first) { this.items[i].is_first = false } }
-      if (position == 1){ // down
+      for (let i=0; i<this.items.length; i++) { 
+				if (this.items[i].position === first) { 
+					this.items[i].is_first = false 
+			}}
+      if (position == 1){ // change later
         this.turn -= 90
         this.arrayRotate(this.buttons, false, 1)
       }
-      else if (position == 2) { // sx
+      else if (position == 2) {
         this.turn -= 90*2
         this.arrayRotate(this.buttons, false, 2)
       }
-      else if (position == 3) { // up
+      else if (position == 3) {
         this.turn += 90
         this.arrayRotate(this.buttons, true, 1)
       }
@@ -57,7 +56,7 @@ export default {
       for (let i=0; i<this.items.length; i++) {
         if (this.items[i].position === first) { 
           this.items[i].is_first = true 
-          this.setFilters(this.items[i].filters)
+          this.filters = this.items[i].filters
         }
       }
     },
@@ -84,17 +83,10 @@ export default {
       }
       return 0
     },
-    setFilters(f) {
-      this.filters = f
-      /* let len = this.filters.length
-      for (let i=0; i<len; i++) { this.filters.shift() }
-      for (let i=0; i<f.length; i++) { this.filters.push(f[i]) } */
-    }
   },
-  
 }
 </script>
 
 <style scoped>
-@import './assets/style/roundmenu_style.css';
+@import '../../assets/style/roundmenu_style.css';
 </style>

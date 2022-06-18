@@ -44,5 +44,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped src="../assets/style/filtermenu_style.scss">
+<style lang="scss" scoped src="../../assets/style/filtermenu_style.scss">
 </style>

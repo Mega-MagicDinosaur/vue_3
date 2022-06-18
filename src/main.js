@@ -12,8 +12,9 @@ import { dom } from "@fortawesome/fontawesome-svg-core"
 dom.watch()
 
 import { createApp } from 'vue'
-import RoundMenu from './RoundMenu.vue'
 
-const app = createApp(RoundMenu);
+import App from './App.vue'
+
+const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount('#app')
