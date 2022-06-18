@@ -21,7 +21,7 @@ import MenuButton from './components/MenuButton.vue'
 import CenterButton from './components/CenterButton.vue'
 import MenuFilters from './components/MenuFilters.vue'
 
-import { data } from './datafile.js'
+import { data } from './assets/script/datafile.js'
 
 export default {
   name: 'RoundMenu',
@@ -88,82 +88,5 @@ export default {
 }
 </script>
 
-<style>
-
-/* MENU BUTTONS */
-
-.menu-container {
-  width: 45vh;
-  height: 45vh;
-}
-.round-menu {
-    position: relative;
-    z-index: 2;
-
-    width: 45vh;
-    height: 45vh;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px 0 #444444;
-
-    transform: scale(1) translateZ(0px);
-}
-.center-button, .menu-button {
-    position: absolute;
-    overflow: hidden;
-
-    width: 50%;
-    height: 50%;
-
-    transition: background .5s, transform 0.8s ease-in-out;
-}
-.center-button {
-    border-radius: 20vh;
-    width: 55%;
-    height: 55%;
-    left: 22.5%;
-    top: 22.5%;
-
-    box-shadow: inset 0 0 10px #000000, inset 0 0 0 1.8vh #E2E2E2, 0 0 0 0.8vh #F5F6FB;
-}
-.menu-button {
-    transform: rotate(45deg);
-    box-sizing: border-box;
-}
-.menu-button:nth-child(1) {
-    border-radius: 0 40vh 0 0;
-    left: 50%;
-    transform-origin: bottom left;
-}
-.menu-button:nth-child(1) .menu-icon {
-  left: 6%;
-  top: -6%;
-}
-.menu-button:nth-child(2){
-    border-radius: 0 0 40vh 0;
-    top: 50%;
-    left: 50%;
-    transform-origin: top left;
-}
-.menu-button:nth-child(2) .menu-icon {
-  left: 6%;
-  top: 6%;
-}
-.menu-button:nth-child(3) {
-    border-radius: 0 0 0 40vh;
-    top: 50%;
-    transform-origin: top right;
-}
-.menu-button:nth-child(3) .menu-icon {
-  left: -6%;
-  top: 6%;
-}
-.menu-button:nth-child(4) {
-    border-radius: 40vh 0 0 0;
-    transform-origin: bottom right;
-}
-.menu-button:nth-child(4) .menu-icon {
-  left: -6%;
-  top: -6%;
-}
-
+<style scoped src="./assets/style/roundmenu_style.css">
 </style>

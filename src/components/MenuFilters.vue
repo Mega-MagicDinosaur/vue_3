@@ -3,8 +3,9 @@
 <div class="filter-menu">
 <div>
     <TransitionGroup name="list">
-        <a v-for="(filter, i) in this.filters" :key="filter" class="filter-menu-item"> 
-          <FilterMenu :filter="filter" :selected="this.selected_menu[i]" @clicked="clicked(filter)"/>
+        <a v-for="(filter, index) in this.filters" :key="filter" class="filter-menu-item"> 
+          <FilterMenu :filter="filter" :selected="this.selected_menu[index]" 
+          @clicked_menu="clicked_menu(filter)" @toggled_box="toggled_box(i, index)"/>
         </a>
     </TransitionGroup>
 </div>
@@ -35,75 +36,20 @@ export default {
           for (let i=0; i<this.selected_menu.length; i++) this.selected_menu[i] = false 
     }}},
     methods: {
-      clicked(filter) {
+      clicked_menu(filter) {
         for (let i=0; i<this.filters.length; i++) {
           this.selected_menu[i] = false
           if (this.filters[i] === filter) { this.selected_menu[i] = true }
-        }
+      }},
+      toggled_box(filter, i) {
+        // develop
+        filter;
+        i;
       }
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped src="../assets/style/menufilters_style.scss">
 
-/* SCSS HERE */
-@import "node_modules/mathsass/dist/math";
-
-.menu-icon {
-  font-size: 22px;
-}
-
-$pi:3.1415;
-$menu-items: 6;
-$open-distance:180px;
-$opening-angle:$pi/2;
-
-%ball{
-  width: auto;
-  height: auto;
-  position: absolute;
-  color:black;
-  text-align:center;
-  transform:translate3d(0,0,0);
-  transition:transform ease-out 200ms;
-}
-
-.filter-menu{ // don't touch, it just works :)
-  position: relative;
-
-  transform-origin: center;
-
-  left: 50%; 
-  top: -50%;
-}
-.filter-menu-item{
-  display: inline-block;
-  white-space: nowrap;
-  position: absolute;
-  z-index: 1;
-  transform: scale(0.25);
-
-  @extend %ball;
-
-  transition-timing-function:cubic-bezier(0.935, 0.000, 0.340, 1.330); // change filter behaviour
-  @for $i from 1 through $menu-items{
-    $angle:((0 - $opening-angle)/2)+(($opening-angle/($menu-items - 1))*($i - 1));
-    
-    &:nth-child(#{$i}){
-      transition-duration: 500ms;
-      transform:translate3d(cos($angle)*$open-distance,sin($angle)*$open-distance,0) scale(1);
-    }
-  }
-}
-
-.list-enter-active,
-.list-leave-active {
-  transition: 2s;
-}
-
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-}
 </style>
