@@ -1,6 +1,12 @@
 .menu-container {
   width: 45vh;
   height: 45vh;
+
+  position: relative;
+  top: 50px;
+  left: 50px;
+
+  transform: scale(0.9);
 }
 
 .round-menu {

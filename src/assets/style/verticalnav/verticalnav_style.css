@@ -1,0 +1,35 @@
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0px 0px 5vh 12px;
+    padding: 8px;
+}
+.material-icons,
+.material-icons-outlined {
+    font-size: 28px;
+    color: #6A7FA4;
+}
+
+.material-icons:hover,
+.material-icons-outlined:hover { 
+    text-decoration: none; 
+}
+.selected-icon {
+    border-radius: 25px 0px 0px 25px;
+    background-color: #F5F6FB;
+}
+.selected-icon-content { 
+    color: #4E8CFC; 
+}
+.nav-logo {
+    display: block;
+    margin: 25px auto 75px auto;
+
+    width: 50px;
+    height: 50px;
+}
+.account-settings-icon { 
+    margin-top: auto;
+}

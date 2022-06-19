@@ -36,3 +36,16 @@
 /* BOTTON VIEW */
 
 /* NAV VIEW */
+.vertical-nav {
+    display: flex;
+    flex-direction: column;
+
+    float: left;
+    overflow: hidden;
+
+    width: 75px;
+    height:100vh;
+    border-radius: 0px 25px 25px 0px;
+
+    background-color: #ffffff;
+}

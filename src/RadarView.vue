@@ -1,21 +1,25 @@
 <template>
-<div class="vertical-nav"> <!-- navbar -->
-    <VerticalNav />
-</div>
-
-<div class="radarview-container">
-    <div class="top-view"> <!-- top view -->
-        <TitleBox class="title-box" title="Radar View" subtitle="Move freely to find out" />
-        <FiltersBox class="filters-box" />
+    <div class="vertical-nav">
+        <!-- navbar -->
+        <VerticalNav />
     </div>
 
-    <div class="center-view"> <!-- center view -->
-        <RoundMenu/>
-    </div>
+    <div class="radarview-container">
+        <div class="top-view">
+            <!-- top view -->
+            <TitleBox class="title-box" title="Radar View" subtitle="Move freely to find out" />
+            <FiltersBox class="filters-box" />
+        </div>
 
-    <div class="bottom-view"> <!-- bottom view -->
+        <div class="center-view">
+            <!-- center view -->
+            <RoundMenu />
+        </div>
+
+        <div class="bottom-view">
+            <!-- bottom view -->
+        </div>
     </div>
-</div>
 
 </template>
 
@@ -37,10 +41,11 @@ export default {
         FiltersBox,
         VerticalNav
     },
-    data() { 
+    data() {
         return {
-        filters_data: filters_data
-    }},
+            filters_data: filters_data
+        }
+    },
     methods: {}
 }
 </script>
