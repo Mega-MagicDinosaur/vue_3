@@ -15,8 +15,6 @@ import MenuButton from './MenuButton.vue'
 import CenterButton from './CenterButton.vue'
 import MenuFilters from './MenuFilters.vue'
 
-import { buttons_data } from '../../assets/script/datafile.js'
-
 export default {
   name: 'RoundMenu',
   components: {
@@ -24,11 +22,14 @@ export default {
     CenterButton,
     MenuFilters,
   },
+  props: {
+    buttons_data: Object
+  },
   data() { 
-    const b = buttons_data
+    const b = this.buttons_data
     return {
       turn: 45,
-      items:   b,				// data will have to be passed from v-bind eventually !!
+      items:   b,
       buttons: [b[0],b[1],b[2],b[3]],
       filters: [],
   }},

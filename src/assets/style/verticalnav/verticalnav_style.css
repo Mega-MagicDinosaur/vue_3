@@ -20,7 +20,7 @@
     border-radius: 25px 0px 0px 25px;
     background-color: #F5F6FB;
 }
-.selected-icon-content { 
+.selected-icon * {
     color: #4E8CFC; 
 }
 .nav-logo {
