@@ -14,11 +14,11 @@ dom.watch()
 import { createApp } from 'vue'
 
 import RadarView from './RadarView.vue'
-import ListView from './CompanyList.vue'
+// import ListView from './CompanyList.vue'
 
 let app 
 app = createApp(RadarView)
-app = createApp(ListView)
+// app = createApp(ListView)
 
 app.component("font-awesome-icon", FontAwesomeIcon)
 app.mount('#app')

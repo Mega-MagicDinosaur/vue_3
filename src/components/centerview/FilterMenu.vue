@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import MenuIcon from './MenuIcon.vue'
+import MenuIcon from '../generics/MenuIcon.vue'
 
 export default {
     name: 'FilterMenu',

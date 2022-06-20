@@ -25,12 +25,8 @@
     align-items: center;
 
     width: 100%;
-    margin: 30px;
-    padding: 0px 20px 0px 20px;
 
-    border-radius: 15px;
-    background-color: #fbfbfb;
-    box-shadow: 2px 4px 8px #C4C4DA;
+    margin: 30px 20px 30px 0px;
 }
 
 /* CENTER VIEW */
